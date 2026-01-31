@@ -14,13 +14,12 @@ CREATE TABLE sales (
     sales DECIMAL(10,2)
 );
 
-# IMPORTING THE CSV FILE INTO TABLE
+# IMPORTING DATA FROM CSV FILE INTO TABLE USING DATA WIZARD 
 
 
 -- Total number of transactions
 SELECT COUNT(*) AS total_transactions
 FROM sales_data;
-
 
 
 -- Date range of data
@@ -86,7 +85,6 @@ GROUP BY payment
 ORDER BY total_revenue DESC;
 
 
-
 -- Average rating by product line
 SELECT product_line, AVG(rating) AS avg_rating
 FROM sales_data
@@ -108,15 +106,11 @@ ORDER BY date;
 
 
 
-
-
 -- Monthly sales_data analysis
 SELECT MONTH(date) AS month, SUM(sales) AS monthly_revenue
 FROM sales_data
 GROUP BY MONTH(date)
 ORDER BY month;
-
-
 
 
 -- Top 3 highest revenue days
@@ -125,7 +119,6 @@ FROM sales_data
 GROUP BY date
 ORDER BY total_revenue DESC
 LIMIT 3;
-
 
 
 -- Identify unusually high sales_data (outliers)
@@ -137,14 +130,9 @@ WHERE sales > (
 );
 
 
-
-
-
-
 -- Average revenue per transaction
 SELECT AVG(sales) AS avg_transaction_value
 FROM sales_data;
-
 
 
 -- Branch contribution percentage
